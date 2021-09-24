@@ -1,4 +1,15 @@
+.container {
+  width: 400px;
+  height: 1000px;
+  background: url(../images/nokia3210.webp);
+  background-size: cover;
+  position: absolute;
+}
+
 .grid {
+  position: absolute;
+  top: 230px;
+  left: 100px;
   display: flex;
   flex-wrap: wrap;
   border: 2px solid black;
@@ -12,9 +23,60 @@
 }
 
 .snake {
-  background: green;
+  background: #252b23;
 }
 
 .apple {
+  background: #252b23;
+}
+
+.hidden {
+  display: none;
+}
+
+#start {
+  position: absolute;
+  left: 165px;
+  top: 475px;
+  padding: 10px;
+  outline: none;
+  background: none;
+  color: blue;
+  font-size: 20px;
+  font-weight: bolder;
+  border: none;
+}
+
+#two,
+#four,
+#six,
+#eight {
   background: red;
+  width: 80px;
+  height: 40px;
+  border-radius: 10px;
+}
+
+#two {
+  position: absolute;
+  top: 630px;
+  left: 163px;
+}
+
+#four {
+  position: absolute;
+  top: 700px;
+  left: 55px;
+}
+
+#six {
+  position: absolute;
+  top: 700px;
+  left: 270px;
+}
+
+#eight {
+  position: absolute;
+  top: 780px;
+  left: 163px;
 }
