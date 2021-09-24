@@ -1,5 +1,6 @@
 const grid = document.querySelector(".grid");
 const scoreDisplay = document.getElementById("score");
+const start = document.getElementById("start");
 let squares = [];
 const width = 10;
 let snake = [2, 1, 0];
@@ -8,6 +9,7 @@ let apple = 0;
 let score = 0;
 let timeIncrement = 0.9;
 let startTime = 1000;
+let movement = "";
 
 // Create the grid
 function createGrid() {
@@ -32,6 +34,13 @@ function createApple() {
   squares[apple].classList.add("apple");
 }
 createApple();
+
+start.addEventListener("click", startGame);
+
+function startGame() {
+  // Adding the movement
+  movement = setInterval(move, startTime);
+}
 
 // Movement Logic
 function move() {
@@ -92,9 +101,6 @@ function move() {
 // Bottom wall -> snake[0] + width >= width*width
 // Right wall -> snake[0] % width === width -1
 // Hitting itself -> Next value for the head already contains snake class
-
-// Adding the movement
-let movement = setInterval(move, startTime);
 
 //Other directions logic:
 // To the right: +1
