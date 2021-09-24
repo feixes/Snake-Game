@@ -34,6 +34,10 @@
   display: none;
 }
 
+.button-press {
+  animation: colorChange 0.8s;
+}
+
 #start {
   position: absolute;
   left: 165px;
@@ -51,7 +55,6 @@
 #four,
 #six,
 #eight {
-  background: red;
   width: 80px;
   height: 40px;
   border-radius: 10px;
@@ -79,4 +82,13 @@
   position: absolute;
   top: 780px;
   left: 163px;
+}
+
+@keyframes colorChange {
+  0% {
+    background: rgba(0, 0, 0, 0.6);
+  }
+  100% {
+    background: rgba(0, 0, 0, 0.3);
+  }
 }

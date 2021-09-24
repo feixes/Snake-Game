@@ -1,6 +1,11 @@
 const grid = document.querySelector(".grid");
 const scoreDisplay = document.getElementById("score");
 const start = document.getElementById("start");
+const two = document.getElementById("two");
+const four = document.getElementById("four");
+const six = document.getElementById("six");
+const eight = document.getElementById("eight");
+
 let squares = [];
 const width = 10;
 let snake = [2, 1, 0];
@@ -43,7 +48,7 @@ function startGame() {
   score = 0;
   direction = 1;
   startTime = 1000;
-  scoreDisplay.textContent = "";
+  //scoreDisplay.textContent = "";
   snake.forEach((index) => squares[index].classList.remove("snake"));
   snake = [2, 1, 0];
   snake.forEach((index) => squares[index].classList.add("snake"));
@@ -56,6 +61,7 @@ function startGame() {
 
 // Movement Logic
 function move() {
+  removeButtonPress();
   if (
     (snake[0] % width === 0 && direction === -1) ||
     (snake[0] - width < 0 && direction === -width) ||
@@ -82,7 +88,7 @@ function move() {
     squares[apple].classList.remove("apple");
     createApple();
     score += 1;
-    scoreDisplay.textContent = score;
+    //scoreDisplay.textContent = score;
     //Grow the snake
     //Take the tail we just removed and add it back
     squares[tail].classList.add("snake");
@@ -123,13 +129,26 @@ function move() {
 function directionChange(e) {
   if (e.key === "ArrowRight") {
     direction = 1;
+    six.classList.add("button-press");
   } else if (e.key === "ArrowLeft") {
     direction = -1;
+    four.classList.add("button-press");
   } else if (e.key === "ArrowUp") {
     direction = -width;
+    two.classList.add("button-press");
+    e.preventDefault();
   } else if (e.key === "ArrowDown") {
     direction = width;
+    eight.classList.add("button-press");
+    e.preventDefault();
   }
+}
+
+function removeButtonPress() {
+  two.classList.remove("button-press");
+  four.classList.remove("button-press");
+  six.classList.remove("button-press");
+  eight.classList.remove("button-press");
 }
 
 document.addEventListener("keyup", directionChange);
