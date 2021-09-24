@@ -38,7 +38,17 @@ createApple();
 start.addEventListener("click", startGame);
 
 function startGame() {
-  // Adding the movement
+  //reset
+  clearInterval(movement);
+  score = 0;
+  score.textContent = "";
+  snake.forEach((index) => squares[index].classList.remove("snake"));
+  snake = [2, 1, 0];
+  snake.forEach((index) => squares[index].classList.add("snake"));
+  squares[apple].classList.remove("apple");
+  createApple();
+
+  // start moving
   movement = setInterval(move, startTime);
 }
 
