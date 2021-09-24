@@ -1,9 +1,11 @@
 const grid = document.querySelector(".grid");
+const scoreDisplay = document.getElementById("score");
 let squares = [];
 const width = 10;
 let snake = [2, 1, 0];
 let direction = 1;
 let apple = 0;
+let score = 0;
 
 // Create the grid
 function createGrid() {
@@ -50,8 +52,16 @@ function move() {
   // a value for direction will be added to the snake head
   snake.unshift(snake[0] + direction);
   squares[snake[0]].classList.add("snake");
-}
 
+  if (squares[apple] === squares[snake[0]]) {
+    //squares[apple].classList.contains("snake")
+    squares[apple].classList.remove("apple");
+    createApple();
+    score += 1;
+    scoreDisplay.textContent = score;
+  }
+}
+//squares[apple].classList.contains("snake")
 // Collision detection:
 // 00 01 02 03 04 05 06 07 08 09
 // 10 11 12 13 14 15 16 17 18 19
