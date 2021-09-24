@@ -41,7 +41,9 @@ function startGame() {
   //reset
   clearInterval(movement);
   score = 0;
-  score.textContent = "";
+  direction = 1;
+  startTime = 1000;
+  scoreDisplay.textContent = "";
   snake.forEach((index) => squares[index].classList.remove("snake"));
   snake = [2, 1, 0];
   snake.forEach((index) => squares[index].classList.add("snake"));
