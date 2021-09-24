@@ -32,3 +32,23 @@ function move() {
 
 // Adding the movement
 let movement = setInterval(move, 1000);
+
+//Other directions logic:
+// To the right: +1
+// To the left: -1
+// Upwards: -10
+// Downwards: +10
+
+function directionChange(e) {
+  if (e.key === "ArrowRight") {
+    console.log("moving right");
+  } else if (e.key === "ArrowLeft") {
+    console.log("moving left");
+  } else if (e.key === "ArrowUp") {
+    console.log("moving up");
+  } else if (e.key === "ArrowDown") {
+    console.log("moving down");
+  }
+}
+
+document.addEventListener("keyup", directionChange);
