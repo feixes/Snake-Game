@@ -2,6 +2,7 @@ const grid = document.querySelector(".grid");
 let squares = [];
 const width = 10;
 let snake = [2, 1, 0];
+let direction = 1;
 
 // Create the grid
 function createGrid() {
@@ -25,8 +26,8 @@ function move() {
   squares[tail].classList.remove("snake");
 
   // Add a new head. Snake head will always be snake[0]
-  //for now, will be added to the right (+1)
-  snake.unshift(snake[0] + 1);
+  // a value for direction will be added to the snake head
+  snake.unshift(snake[0] + direction);
   squares[snake[0]].classList.add("snake");
 }
 
@@ -41,13 +42,13 @@ let movement = setInterval(move, 1000);
 
 function directionChange(e) {
   if (e.key === "ArrowRight") {
-    console.log("moving right");
+    direction = 1;
   } else if (e.key === "ArrowLeft") {
-    console.log("moving left");
+    direction = -1;
   } else if (e.key === "ArrowUp") {
-    console.log("moving up");
+    direction = -width;
   } else if (e.key === "ArrowDown") {
-    console.log("moving down");
+    direction = width;
   }
 }
 
