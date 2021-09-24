@@ -136,11 +136,9 @@ function directionChange(e) {
   } else if (e.key === "ArrowUp") {
     direction = -width;
     two.classList.add("button-press");
-    e.preventDefault();
   } else if (e.key === "ArrowDown") {
     direction = width;
     eight.classList.add("button-press");
-    e.preventDefault();
   }
 }
 
