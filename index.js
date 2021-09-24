@@ -3,6 +3,7 @@ let squares = [];
 const width = 10;
 let snake = [2, 1, 0];
 let direction = 1;
+let apple = 0;
 
 // Create the grid
 function createGrid() {
@@ -18,9 +19,18 @@ createGrid();
 // Create the initial state of the snake
 snake.forEach((index) => squares[index].classList.add("snake"));
 
+// Generating the apple
+// do{}while will keep generating apple positions if the snake is touching it
+function createApple() {
+  do {
+    apple = Math.floor(Math.random() * squares.length);
+  } while (squares[apple].classList.contains("snake"));
+  squares[apple].classList.add("apple");
+}
+createApple();
+
 // Movement Logic
 function move() {
-  console.log(snake[0]);
   if (
     (snake[0] % width === 0 && direction === -1) ||
     (snake[0] - width < 0 && direction === -width) ||
