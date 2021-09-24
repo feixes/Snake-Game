@@ -17,8 +17,7 @@ createGrid();
 // Create the initial state of the snake
 snake.forEach((index) => squares[index].classList.add("snake"));
 
-// Adding movement
-
+// Movement Logic
 function move() {
   // remove the tail from the snake
   let tail = snake.pop();
@@ -29,7 +28,7 @@ function move() {
   //for now, will be added to the right (+1)
   snake.unshift(snake[0] + 1);
   squares[snake[0]].classList.add("snake");
-  console.log(snake[0] + 1);
 }
 
-move();
+// Adding the movement
+let movement = setInterval(move, 1000);
