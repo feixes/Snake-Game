@@ -25,7 +25,8 @@ function move() {
     (snake[0] % width === 0 && direction === -1) ||
     (snake[0] - width < 0 && direction === -width) ||
     (snake[0] + width >= width * width && direction === width) ||
-    (snake[0] % width === width - 1 && direction === 1)
+    (snake[0] % width === width - 1 && direction === 1) ||
+    squares[snake[0] + direction].classList.contains("snake")
   ) {
     return clearInterval(movement); //The code has to break here, it has to return the clear interval for the whole function to not be executed
   }
@@ -57,7 +58,8 @@ function move() {
 // Left wall -> snake[0] % width === 0
 // Top wall -> snake[0] - width < 0
 // Bottom wall -> snake[0] + width >= width*width
-// Right wall /> snake[0] % width === width -1
+// Right wall -> snake[0] % width === width -1
+// Hitting itself -> Next value for the head already contains snake class
 
 // Adding the movement
 let movement = setInterval(move, 1000);
