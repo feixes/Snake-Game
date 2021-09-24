@@ -20,6 +20,16 @@ snake.forEach((index) => squares[index].classList.add("snake"));
 
 // Movement Logic
 function move() {
+  console.log(snake[0]);
+  if (
+    (snake[0] % width === 0 && direction === -1) ||
+    (snake[0] - width < 0 && direction === -width) ||
+    (snake[0] + width >= width * width && direction === width) ||
+    (snake[0] % width === width - 1 && direction === 1)
+  ) {
+    return clearInterval(movement); //The code has to break here, it has to return the clear interval for the whole function to not be executed
+  }
+
   // remove the tail from the snake
   let tail = snake.pop();
   // remove the styling from the tail
@@ -43,7 +53,7 @@ function move() {
 // 80 81 82 83 84 85 86 87 88 89
 // 90 91 92 93 94 95 96 97 98 99
 
-//Check the value of the snake head
+//Check the value of the snake head. Must also move in that direction!
 // Left wall -> snake[0] % width === 0
 // Top wall -> snake[0] - width < 0
 // Bottom wall -> snake[0] + width >= width*width
