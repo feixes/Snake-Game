@@ -7,9 +7,10 @@
 }
 
 .square {
-  box-sizing: border-box;
-  background: red;
   width: 20px;
   height: 20px;
-  border: 1px solid black;
+}
+
+.snake {
+  background: green;
 }

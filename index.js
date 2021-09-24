@@ -1,6 +1,7 @@
 const grid = document.querySelector(".grid");
 let squares = [];
 const width = 10;
+let snake = [0, 1, 2];
 
 //Create the grid
 function createGrid() {
@@ -12,4 +13,5 @@ function createGrid() {
   }
 }
 createGrid();
-console.log(squares);
+
+snake.forEach((index) => squares[index].classList.add("snake"));
