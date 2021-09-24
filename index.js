@@ -6,6 +6,8 @@ let snake = [2, 1, 0];
 let direction = 1;
 let apple = 0;
 let score = 0;
+let timeIncrement = 0.9;
+let startTime = 1000;
 
 // Create the grid
 function createGrid() {
@@ -64,7 +66,11 @@ function move() {
     //Take the tail we just removed and add it back
     squares[tail].classList.add("snake");
     snake.push(tail);
-    console.log(snake);
+
+    // Up the speed
+    clearInterval(movement);
+    startTime = startTime * timeIncrement;
+    movement = setInterval(move, startTime);
   }
 }
 
@@ -88,7 +94,7 @@ function move() {
 // Hitting itself -> Next value for the head already contains snake class
 
 // Adding the movement
-let movement = setInterval(move, 1000);
+let movement = setInterval(move, startTime);
 
 //Other directions logic:
 // To the right: +1
