@@ -53,15 +53,21 @@ function move() {
   snake.unshift(snake[0] + direction);
   squares[snake[0]].classList.add("snake");
 
+  // Checking if the snake eats an apple
   if (squares[apple] === squares[snake[0]]) {
     //squares[apple].classList.contains("snake")
     squares[apple].classList.remove("apple");
     createApple();
     score += 1;
     scoreDisplay.textContent = score;
+    //Grow the snake
+    //Take the tail we just removed and add it back
+    squares[tail].classList.add("snake");
+    snake.push(tail);
+    console.log(snake);
   }
 }
-//squares[apple].classList.contains("snake")
+
 // Collision detection:
 // 00 01 02 03 04 05 06 07 08 09
 // 10 11 12 13 14 15 16 17 18 19
