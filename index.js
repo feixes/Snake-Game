@@ -43,10 +43,11 @@ function move() {
 // 80 81 82 83 84 85 86 87 88 89
 // 90 91 92 93 94 95 96 97 98 99
 
-// Left wall -> % width === 0
-// Top wall -> - width < 0
-// Bottom wall -> + width >= width*width
-// Right wall /> % width === width -1
+//Check the value of the snake head
+// Left wall -> snake[0] % width === 0
+// Top wall -> snake[0] - width < 0
+// Bottom wall -> snake[0] + width >= width*width
+// Right wall /> snake[0] % width === width -1
 
 // Adding the movement
 let movement = setInterval(move, 1000);
